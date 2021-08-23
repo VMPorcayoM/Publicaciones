@@ -7,12 +7,13 @@
         >
             <div class="card-body">
                 <h5 class="card-title">{{a.name}}</h5>
+                
                 <p class="card-text">{{a.post}}</p>
                 <img style="margin-bottom:5px" 
                 :src="`${a.img}`"
                  class="card-img-bottom" alt="">                
-                <div class="d-grid gap-2 col-12 col-md-6 mx-auto">
-                    <button class="btn  btn-outline-secondary" type="button"><b-icon icon="chat-text" class="rounded p-2"  style="vertical-align:middle;" font-scale="2"></b-icon>Comentar</button>
+                <div class="d-grid gap-2 col-12 col-md-6 mx-auto">     
+                  <px-button-comment @custom-click="goToPost(a.id)"/>          
                 </div>
                 
             </div>                        
@@ -22,16 +23,18 @@
 </template>
 
 <script>
+import PxButtonComment from './PxButtonComment.vue';
 
 export default {
   name: "PxAssetsTable",
 
-  components: { },
+  components: {PxButtonComment  },
 
   props: {
     assets: {
       type: Array,
       default: () => [],
+
     },
   },
 

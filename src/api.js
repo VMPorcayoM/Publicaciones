@@ -28,9 +28,16 @@ function newPost(formData){
         console.log(error);
     });
 }
+function getComments(post){
+  return fetch(`${url}/comments/${post}?api_key=${api_key}`)
+  .then(res => res.json())
+ .then(res => res.data)
+
+}
 
   export default {
     getAssets,
     getAsset,
-    newPost
+    newPost,
+    getComments
   }

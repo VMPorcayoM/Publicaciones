@@ -8,7 +8,7 @@
           <h1 >Facebook</h1> 
         </div>
         <div class="col-4 col-md-3">
-          <a class="nav-link" aria-current="page" href="#"><b-icon icon="house" class="offset-8 border rounded p-2"  style="color: #385898; vertical-align:middle;" font-scale="3"></b-icon></a>
+          <a class="nav-link" aria-current="page" href="/"><b-icon icon="house" class="offset-8 border rounded p-2"  style="color: #385898; vertical-align:middle;" font-scale="3"></b-icon></a>
         </div>
       </div>  
     </div>
