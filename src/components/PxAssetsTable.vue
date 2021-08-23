@@ -36,8 +36,8 @@ export default {
   },
 
   methods: {
-    goToCoin(id){
-      this.$router.push({name: 'coin-detail', params: {id}})
+    goToPost(id){
+      this.$router.push({name: 'post-detail', params: {id}})
     }
   }
 };

@@ -8,7 +8,7 @@
 <script>
 import api from '@/api'
 import PxAssetsTable from "@/components/PxAssetsTable";
-import PxCardNewPost from "@/components/PxCardNewPost";
+import PxCardNewPost from "@/components/PxCardNewPost"; 
 export default {
   name: "Home",
   components: { PxAssetsTable, PxCardNewPost },

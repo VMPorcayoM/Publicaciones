@@ -6,13 +6,31 @@ function getAssets() {
       .then(res => res.data)
   }
   
-  function getAsset(post) {
-    return fetch(`${url}/posts/${post}?api_key=${api_key}`)
-      .then(res => res.json())
-      .then(res => res.data)
-  }
+function getAsset(post) {
+  return fetch(`${url}/posts/${post}?api_key=${api_key}`)
+    .then(res => res.json())
+   .then(res => res.data)
+}
+function newPost(formData){
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "multipart/form-data"
+  },
+    body: formData
+  };
+
+  return fetch(`${url}/posts?api_key=${api_key}`, requestOptions)
+    .then(response => {
+        console.log(response);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
 
   export default {
     getAssets,
-    getAsset
+    getAsset,
+    newPost
   }
