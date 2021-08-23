@@ -7,11 +7,11 @@
                         <h5 class="card-title">Haz un nuevo post</h5>
                         <div class="input-group mb-3">
                             <div class="col-12 col-md-12">
-                                <input  v-model="nombre" type="text" class="form-control" placeholder="Tu nombre" aria-label="name" aria-describedby="basic-addon1">
+                                <input id="nombre" v-model="nombre" type="text" class="form-control" placeholder="Tu nombre" aria-label="name" aria-describedby="basic-addon1">
                                 <br>
                             </div>                            
                             <div class="col-12 col-md-12">
-                                <textarea  v-model="post" class="form-control" placeholder="Qué piensas" aria-label="With textarea"></textarea>
+                                <textarea id="nombre" v-model="post" class="form-control" placeholder="Qué piensas" aria-label="With textarea"></textarea>
                             </div>                
                             <div class="custom-file">
                                 <span style="color:grey">Opcional</span><br>
@@ -35,7 +35,7 @@ export default {
   name: "PxCardNewPost",
   data(){
       return{
-            nombre: 'Anonimo',
+            nombre: '',
             post: ' ',
             file:{}
       }
@@ -54,27 +54,32 @@ export default {
         },
          newPost() {
                                          
-            
-            const formData = new FormData();
-            formData.append('name', this.nombre)
-            formData.append('post',  this.post)
-            formData.append('img', this.file)
+            if(!this.nombre=='' && !this.post==''){
+                const formData = new FormData();
+                formData.append('name', this.nombre)
+                formData.append('post',  this.post)
+                formData.append('img', this.file)
 
-            axios.post("http://localhost:8000/api/posts?api_key=key_cur_prod_fnPqT5xQEi5Vcb9wKwbCf65c3BjVGyBB", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
-            })
-                .then(response => {
-                    console.log(response);
+                axios.post("http://localhost:8000/api/posts?api_key=key_cur_prod_fnPqT5xQEi5Vcb9wKwbCf65c3BjVGyBB", formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data"
+                    }
                 })
-                .catch(error => {
-                    console.log(error);
-                })
+                    .then(response => {
+                        console.log(response);
+                        alert("Post agregado!");
+                        this.nombre='';
+                        this.post='';
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        alert("Error de agregado!");
+                    })
                 
-
-            this.nombre='';
-            this.post='';
+            }else{
+                alert("Coloca tu nombre y tu post!");
+            }
+            
                 
         }
 
