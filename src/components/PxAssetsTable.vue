@@ -15,10 +15,10 @@
                     <button class="btn  btn-outline-secondary" type="button"><b-icon icon="chat-text" class="rounded p-2"  style="vertical-align:middle;" font-scale="2"></b-icon>Comentar</button>
                 </div>
                 
-            </div>            
-            
+            </div>                        
         </div>
     </div>
+    
 </template>
 
 <script>
@@ -47,6 +47,9 @@ export default {
     .card-title{
         color: #1f3d79;
         font-weight: bold;
+    }
+    .card{
+        margin-bottom:20px;
     }
     
 </style>
